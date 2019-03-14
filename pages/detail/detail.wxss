@@ -1,0 +1,56 @@
+/* pages/detail/detail.wxss */
+page{
+  color: #616161;
+  font-size: 35rpx;
+}
+.detailbannerimage{
+  width: 100%;
+  height:100%;
+}
+.detailbannerimages{
+  height: 600rpx;
+}
+.detail-price{
+  display: inline-block;
+   width: 50%;
+   color: red;
+}
+.sellcount{
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+}
+.slice{
+  color: #2196f3;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  }
+._detailimages{
+  margin-bottom: 100rpx;
+}  
+.detailimages{
+width: 100%;
+}
+.detailimages image{
+  width: 100%;
+  height: 750rpx;
+}
+.gobuy{
+  position: fixed;
+  justify-content: space-between;
+  display: flex;
+  bottom: 0;
+}
+.gobuy button{
+  width: 400rpx;
+  height: 100rpx;
+  border-radius: 0rpx;
+  color: white;
+}
+.addcar{
+  background: #90caf9;
+}
+.buyonce{
+  background-color: #64b5f6;
+}

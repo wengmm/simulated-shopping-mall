@@ -13,8 +13,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.2",
-	"appid": "wxf62bf705b448f29e",
-	"projectname": "xiao",
+	"appid": "wx39125d0209b377b5",
+	"projectname": "simulated-shopping-mall",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -37,13 +37,26 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "mall",
 					"pathName": "pages/mall/mall",
+					"query": "",
 					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "mall",
+					"pathName": "pages/mall/mall",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "detail",
+					"pathName": "pages/detail/detail",
+					"scene": null
 				}
 			]
 		}

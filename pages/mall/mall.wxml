@@ -1,11 +1,33 @@
 <!--pages/mall/mall.wxml-->
-<view>
 
-</view>
-<view class='list'>
-  <view class='contain' wx:for="{{list}}" wx:key="item.id"> 
-    <image class='list-img' src='{{item.imageUrl}}'></image>
-    <text class='title'>{{item.title}}</text> 
+  <view class='sidebar'>
+    <view 
+    class='sidebaritem {{item.id===current? "active":""}}'
+    wx:for="{{sidebar}}"
+    wx:key="{{item.id}}"
+    data-id="{{item.id}}"
+    bindtap='changenav'
+    >
+    {{item.name}}
+    </view>
   </view>
-</view>
-<text></text>
+  <scroll-view 
+    scroll-y
+    bindscrolltolower="getonload"
+    class='content'
+    >
+    <navigator
+     url='/pages/detail/detail?id={{item.id}}'
+     class='product' 
+     wx:key="{{item.id}}" 
+     wx:for="{{products}}"
+     >
+      <image src='{{item.image}}'/>
+      <view>{{item.title}}</view>
+      <view class='p_price'>￥{{item.price}}</view>
+    </navigator>
+    <view class='end' wx:if="{{isend}}">没有更多了哦</view>
+
+  </scroll-view>
+
+
