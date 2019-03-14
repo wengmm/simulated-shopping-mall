@@ -1,0 +1,22 @@
+/* pages/mall/mall.wxss */
+.list{
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15rpx;
+  
+}
+.contain{
+  width: 186rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.list-img{
+  height: 100rpx;
+  width: 100rpx;
+  
+}
+.title{
+  text-align: center;
+}

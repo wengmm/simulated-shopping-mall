@@ -1,0 +1,11 @@
+<!--pages/mall/mall.wxml-->
+<view>
+
+</view>
+<view class='list'>
+  <view class='contain' wx:for="{{list}}" wx:key="item.id"> 
+    <image class='list-img' src='{{item.imageUrl}}'></image>
+    <text class='title'>{{item.title}}</text> 
+  </view>
+</view>
+<text></text>
