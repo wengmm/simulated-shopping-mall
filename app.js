@@ -1,5 +1,11 @@
 //app.js
+//app里的东西其他页面都能用 吧store放这里其他页面就能通过const app=getApp()使用
+import store ,{addCart}from './redux/store.js'
 App({
+  store,
+  storeAddCar(product){
+    store.dispatch(addCart(product))
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []

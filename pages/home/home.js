@@ -7,6 +7,8 @@ Page({
     recommendList:[],
     active:1,
     isshow:false,
+    homeStart:0,
+    homeisend:false,
     left:0,
     beforedistance:0,
     touchdistance:0,
@@ -57,6 +59,22 @@ Page({
   //     console.log(this.data.beforedistance)
   //   })
   // },
+  loadmore(){
+    console.log(3)
+    wx.request({
+      url: `http://www.xiongmaoyouxuan.com/api/tab/1/feeds?start=${this.data.homeStart}&sort=0`,
+      success:(res)=> {
+        console.log(res)
+        this.setData({
+          recommendList: this.data.recommendList.concat(res.data.data.list),
+          homeStart: res.data.data.nextIndex,
+          homeisend: res.data.data.isEnd,
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   onLoad:function(){
     wx.request({
       url: 'http://www.xiongmaoyouxuan.com/api/tab/1?start=0',
@@ -103,6 +121,7 @@ Page({
         success: (res) => {
           console.log(res.data)
           this.setData({
+            homeStart:res.data.data.nextIndex,
             recommendList: res.data.data.list
           })
         },

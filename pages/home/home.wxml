@@ -1,70 +1,82 @@
 <!--pages/home/home.wxml-->
-<view class='search'> 
-  <icon type="search" size="40rpx" />     
-  <input class="search_input"
-    type="text" 
-    placeholder="请输入关键字"
-    value="{{searchValue}}"/>                
-</view> 
-<!-- 下拉 -->
-<view class='chose-car'>
-  <view class='drop-down'>
-    <text class='hot'>最后疯抢</text>
-    <view class='news-list'
-         >
-      <scroll-view 
-      scroll-x
-      class='list-hidden'
-       
-       >
-        <view 
-         class='news {{active === item.id ? "new":""}}'
-         bindtap='click'
-         data-id='{{item.id}}'
-         wx:for="{{news}}" 
-         wx:key="{{item.id}}">
-          {{item.name}}
-        </view>
-      </scroll-view>
-    </view>
-    <image src='../../icons/arrow.png' bindtap='show'/>
+<!-- scroll-view设display：flex不起作用 方法在里面再包一层view 
+有了滚动条才能出发滚到底部时的事件，要给page加上 height: 100%;
+-->
+<scroll-view scroll-y bindscrolltolower="loadmore">
+  <view class='search'> 
+    <icon type="search" size="40rpx" />     
+    <input class="search_input"
+      type="text" 
+      placeholder="请输入关键字"
+      value="{{searchValue}}"/>                
   </view> 
-  <!-- 下拉项 -->
-  <view class='hidden-drop' wx:if="{{isshow}}">
-    <view class='list-item'        
-    wx:for="{{news}}" 
-    wx:key="{{item.id}}">
-    {{item.name}}
+  <!-- 下拉 -->
+  <view class='chose-car'>
+    <view class='drop-down'>
+      <text class='hot'>最后疯抢</text>
+      <view class='news-list'
+          >
+        <scroll-view 
+        scroll-x
+        class='list-hidden'
+        
+        >
+          <view 
+          class='news {{active === item.id ? "new":""}}'
+          bindtap='click'
+          data-id='{{item.id}}'
+          wx:for="{{news}}" 
+          wx:key="{{item.id}}">
+            {{item.name}}
+          </view>
+        </scroll-view>
+      </view>
+      <image src='../../icons/arrow.png' bindtap='show'/>
+    </view> 
+    <!-- 下拉项 -->
+    <view class='hidden-drop' wx:if="{{isshow}}">
+      <view class='list-item'        
+      wx:for="{{news}}" 
+      wx:key="{{item.id}}">
+      {{item.name}}
+      </view>
     </view>
   </view>
-</view>
 
-<swiper
-  indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}"
-  interval="{{interval}}"
-  duration="{{duration}}"
-  circular='true'
->
-  <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
-    <swiper-item>
-      <image class='banner-image' src="{{item.imageUrl}}" />
-    </swiper-item>
-  </block>
-</swiper>
+  <swiper
+    indicator-dots="{{indicatorDots}}"
+    autoplay="{{autoplay}}"
+    interval="{{interval}}"
+    duration="{{duration}}"
+    circular='true'
+  >
+    <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
+      <swiper-item>
+        <image class='banner-image' src="{{item.imageUrl}}" />
+      </swiper-item>
+    </block>
+  </swiper>
 
-<!-- 选项 -->
-<view class='list'>
-  <view class='contain' wx:for="{{list}}" wx:key="item.id"> 
-    <image class='list-img' src='{{item.imageUrl}}'></image>
-    <text class='title'>{{item.title}}</text> 
+  <!-- 选项 -->
+  <view class='list'>
+    <view class='contain' wx:for="{{list}}" wx:key="item.id"> 
+      <image class='list-img' src='{{item.imageUrl}}'></image>
+      <text class='title'>{{item.title}}</text> 
+    </view>
   </view>
-</view>
-<text class='recommend'>------小编精选，热门推荐------</text>
-<view class='recommendList'>
-  <view class='recommendListItem' wx:for="{{recommendList}}">
-    <image class='recommendimg' src='{{item.image}}'></image>
-    <view>{{item.title}}</view>
-    <view class='price'>￥{{item.price}}</view> 
-  </view>
-</view>
+  <text class='recommend'>------小编精选，热门推荐------</text>
+
+    <view class='recommendList'>
+      <navigator 
+      class='recommendListItem' 
+      wx:for="{{recommendList}}"
+      url='/pages/detail/detail?id={{item.id}}'
+      wx:key="{{item.id}}" 
+      >
+          <image class='recommendimg' src='{{item.image}}'></image>
+          <view>{{item.title}}</view>
+          <view class='price'>￥{{item.price}}</view>      
+      </navigator>
+    </view>
+    <view wx:if='{{homeisend}}'>没有更多了哦</view>
+</scroll-view>

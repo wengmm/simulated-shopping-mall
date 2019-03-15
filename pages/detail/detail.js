@@ -1,15 +1,21 @@
 // pages/detail/detail.js
+const app=getApp()
 Page({
   data: {
     detailid:1,
     productdetail:{},
     
   },
+  addtocar(e){
+   console.log(e)
+   // app.storeAddCart()
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 获得当前页路由，page数组两个值一个前一页一个当前页
     const page=getCurrentPages();
     this.setData({
       detailid: page[1].options.id

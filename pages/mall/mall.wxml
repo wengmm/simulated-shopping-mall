@@ -18,6 +18,7 @@
     >
     <navigator
      url='/pages/detail/detail?id={{item.id}}'
+     data-id="{{item.id}}"
      class='product' 
      wx:key="{{item.id}}" 
      wx:for="{{products}}"
