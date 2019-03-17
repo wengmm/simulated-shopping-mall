@@ -1,1 +1,11 @@
 /* pages/mine/mine.wxss */
+.user{
+  display: flex;
+  justify-content: space-around;
+  font-size: 30rpx;
+  align-items: center;
+}
+.touxiang{
+  height: 80rpx;
+  width:80rpx;
+}

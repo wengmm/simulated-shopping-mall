@@ -1,2 +1,17 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+
+<view class='user'>
+  <view class="touxiang" ><open-data type="userAvatarUrl"></open-data></view>
+  <open-data type="userNickName"></open-data>
+  <open-data type="userCity" lang="zh_CN"></open-data>
+  <open-data type="userGender" lang="zh_CN"></open-data>
+  <view catchtap='phone'>{{pho}}操作</view>
+</view>
+<map
+longitude='104.082863'
+latitude='30.629057'
+scale='16'
+bindtap="location"
+markers='{{map}}'
+></map>
+
