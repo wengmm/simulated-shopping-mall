@@ -54,3 +54,36 @@ width: 100%;
 .buyonce{
   background-color: #64b5f6;
 }
+.cart{
+   height: 80rpx;
+   width: 80rpx;
+   
+   position: fixed;
+   top:800rpx;
+   background-color: #e3f2fd;
+   
+   border-radius:50%; 
+   right: 0;
+
+}
+.cart .mountans{
+  display: block;
+  height: 35rpx;
+  width: 35rpx;
+  border-radius:50%; 
+  opacity: 1;
+  background-color: red;
+  position: absolute;
+  text-align: center;
+  line-height: 35rpx;
+  font-size: 25rpx;
+  top: 0rpx;
+  right: 0;
+
+}
+.cart image{
+  height: 60rpx;
+  width: 60rpx;
+  margin: 10rpx;
+  position: relative;
+}

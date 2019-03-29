@@ -1,9 +1,11 @@
 // pages/home/home.js
+const app = getApp()
 Page({
   data: {
     imgUrls: [],
     news:[],
     list: [],
+    city:'定位中...',
     recommendList:[],
     active:1,
     isshow:false,
@@ -76,6 +78,26 @@ Page({
     })
   },
   onLoad:function(){
+    //要先进行允许获取位置信息配置
+    wx.getLocation({
+      type: 'wgs84',
+      altitude: true,
+      success: (res)=> {
+        console.log(res)
+        wx.request({
+          url: `https://apis.map.qq.com/ws/geocoder/v1/?location=${res.latitude},${res.longitude}&key=GJDBZ-LFD3X-KCV4Q-T2BU5-DXO3O-56BF4&get_poi=1`,        
+          success: (res)=> {
+            console.log(res)
+            this.setData({
+              city: res.data.result.address_component.city
+            })
+          },
+          fail: function(res) {},
+          complete: function(res) {},
+        })
+      },
+      
+    })
     wx.request({
       url: 'http://www.xiongmaoyouxuan.com/api/tab/1?start=0',
     
@@ -129,6 +151,9 @@ Page({
         complete: function (res) { },
       })  
 
-  }
+  },
+  onShow: function () {
+    app.setcount()
+  },
 
 })

@@ -1,0 +1,15 @@
+ <image class='upimg' src="{{imgurl}}"></image>
+  <view bindtap='chooseimg'>选择图片</view>
+  <button bindtap='upload'>上传图片</button>
+   <camera wx:if="{{showcamera}}" style="width: 100%; height: 500rpx;"></camera>
+  <button bindtap='open'>打开摄像头</button>
+  <button bindtap='takephoto'>拍照</button>
+  <button bindtap='code'>扫描二维码</button>
+
+   <map
+  longitude='104.082863'
+  latitude='30.629057'
+  scale='16'
+  bindtap="location"
+  markers='{{map}}'
+  ></map>

@@ -1,11 +1,41 @@
 /* pages/mine/mine.wxss */
+.hole{
+  height: 1500rpx;
+  position: relative;
+  z-index: 10;
+  
+
+}
+.bcg{
+  background-color: black;
+  opacity: 0.70;
+}
 .user{
   display: flex;
   justify-content: space-around;
-  font-size: 30rpx;
+  font-size: 25rpx;
   align-items: center;
 }
 .touxiang{
   height: 80rpx;
   width:80rpx;
+}
+.upimg{
+  height: 80rpx;
+  width:80rpx;
+}
+button{
+  height: 50rpx;
+  width: 150rpx;
+  font-size: 15rpx;
+}
+.code{
+  height: 60rpx;
+}
+.ewmimg{
+  height: 500rpx;
+  width: 500rpx;
+  margin: 100rpx;
+  position: relative;
+  z-index: 11;
 }

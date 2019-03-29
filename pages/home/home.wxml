@@ -3,13 +3,21 @@
 有了滚动条才能出发滚到底部时的事件，要给page加上 height: 100%;
 -->
 <scroll-view scroll-y bindscrolltolower="loadmore">
+<!-- 定位 -->
+
+<view class='header'>
+   <image src='/icons/location.png' style='width:50rpx;height:50rpx;'/>
+    <text class='location'>{{city}}</text>
+ 
   <view class='search'> 
+ 
     <icon type="search" size="40rpx" />     
     <input class="search_input"
       type="text" 
       placeholder="请输入关键字"
       value="{{searchValue}}"/>                
   </view> 
+</view>   
   <!-- 下拉 -->
   <view class='chose-car'>
     <view class='drop-down'>

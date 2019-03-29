@@ -5,7 +5,8 @@
     "pages/car/car",
     "pages/mine/mine",
     "pages/search/search",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/audio/audio"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -42,5 +43,11 @@
       }
       
     ]
+  },
+  
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   }
 }

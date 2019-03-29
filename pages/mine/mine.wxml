@@ -1,17 +1,21 @@
 <!--pages/mine/mine.wxml-->
+<view class='hole bcg' wx:if="{{holeshow}}" bindtap='holehide'>
+<image class='ewmimg'  src='/icons/erweima.png' ></image>
+</view > 
+<view wx:if="{{cotentshow}}">
+  <view class='user'>
+    <view class="touxiang" ><open-data type="userAvatarUrl"></open-data></view>
+    <open-data type="userNickName"></open-data>
+    <open-data type="userCity" lang="zh_CN"></open-data>
+    <open-data type="userGender" lang="zh_CN"></open-data>
+    <view catchtap='phone'>{{pho}}操作</view>
+  </view>
+ 
+  <view class='code'>{{resulturl}}</view>
+  <button bindtap='shake'>摇一摇</button>
+  <view wx:if="{{shakeshow}}">请摇动手机</view>
+  
+ 
+</view>  
 
-<view class='user'>
-  <view class="touxiang" ><open-data type="userAvatarUrl"></open-data></view>
-  <open-data type="userNickName"></open-data>
-  <open-data type="userCity" lang="zh_CN"></open-data>
-  <open-data type="userGender" lang="zh_CN"></open-data>
-  <view catchtap='phone'>{{pho}}操作</view>
-</view>
-<map
-longitude='104.082863'
-latitude='30.629057'
-scale='16'
-bindtap="location"
-markers='{{map}}'
-></map>
 

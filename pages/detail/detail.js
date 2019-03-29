@@ -4,17 +4,38 @@ Page({
   data: {
     detailid:1,
     productdetail:{},
+    counts:0,
     
   },
-  addtocar(e){
-   console.log(e)
+
+  addtocar(){
+
+    console.log(this.data.detailid)
+    app.storeAddCar(this.data.detailid)
+    this.setData({
+      counts: app.getmount()
+    })
+    //console.log(app.store.dispatch(addCart))
+    
    // app.storeAddCart()
+  },
+  goturn(){
+    wx.switchTab({
+      url: '/pages/car/car',
+      success: function(res) {},
+      
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //页面进来渲染数量
+   console.log(app.getmount())
+    this.setData({
+      counts: app.getmount()
+    })
     // 获得当前页路由，page数组两个值一个前一页一个当前页
     const page=getCurrentPages();
     this.setData({
@@ -26,7 +47,7 @@ Page({
           this.setData({
             productdetail:res.data.data
           },()=>{
-            console.log(this.data.productdetail)
+           // console.log(this.data.productdetail)
           })
         },
         fail: function (res) { },
@@ -41,14 +62,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**

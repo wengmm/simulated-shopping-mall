@@ -1,4 +1,5 @@
 // pages/mall/mall.js
+const app = getApp()
 Page({
   
   /**
@@ -51,6 +52,7 @@ Page({
     })
   },
   onLoad: function (options) {
+   
     wx.request({
       url: 'http://www.xiongmaoyouxuan.com/api/tabs?sa=',
      
@@ -79,7 +81,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    app.setcount()
   },
 
   /**
