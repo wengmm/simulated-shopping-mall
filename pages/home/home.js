@@ -3,6 +3,7 @@ const app = getApp()
 Page({
   data: {
     imgUrls: [],
+    fyifu:[],
     news:[],
     list: [],
     city:'定位中...',
@@ -20,6 +21,7 @@ Page({
     duration: 500
 
   },
+
   show(){
     this.setData({
       isshow:!this.data.isshow
